@@ -49,4 +49,14 @@ document.querySelectorAll('.read-more').forEach(button => {
             this.textContent = 'Read More';
         }
     });
-}); 
+});
+
+// Add functionality to show/hide the back-to-top button
+window.addEventListener('scroll', () => {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+    } else {
+        backToTop.style.display = 'none';
+    }
+});
