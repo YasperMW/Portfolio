@@ -130,10 +130,9 @@ async function loadLatestCommit() {
     }
     
     const repo = pushEvent.repo.name;
-    const commits = pushEvent.payload.commits || [];
-    const count = commits.length;
+    const totalEvents = events.filter(e => e.type === 'PushEvent').length;
     const time = formatRelativeTime(pushEvent.created_at);
-    ticker.innerHTML = ` <span class="ticker-dot"></span> <span class="ticker-repo">${repo}</span> · <span class="ticker-commits">${count} commit${count > 1 ? 's' : ''}</span> · <span class="ticker-time">${time}</span>`;
+    ticker.innerHTML = ` <span class="ticker-dot"></span> <span class="ticker-repo">${repo}</span> · <span class="ticker-commits">${totalEvents} event${totalEvents > 1 ? 's' : ''}</span> · <span class="ticker-time">${time}</span>`;
   } catch (e) {
     console.error('loadLatestCommit error:', e);
     ticker.innerHTML = '<span class="ticker-dot" style="background:var(--text-muted)"></span> <span class="ticker-time">Unable to load</span>';
