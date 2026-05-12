@@ -23,29 +23,73 @@ function copyEmail() {
 }
 
 // GitHub Activity Heatmap
+const GITHUB_USERNAME = 'YasperMW';
+
 async function loadGitHubActivity() {
+  console.log('Loading GitHub activity...');
+  const heatmap = document.getElementById('githubHeatmap');
+  if (!heatmap) {
+    console.error('Heatmap element not found');
+    return;
+  }
+  
   try {
-    const res = await fetch('https://api.github.com/users/YasperMW/events');
-    if (!res.ok) return;
-    const events = await res.json();
-    const pushEvents = events.filter(e => e.type === 'PushEvent').slice(0, 14);
-    if (pushEvents.length === 0) return;
-    const heatmap = document.getElementById('githubHeatmap');
-    if (!heatmap) return;
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const weeks = [];
-    for (let i = 13; i >= 0; i--) {
-      const week = [];
-      for (let d = 0; d < 7; d++) {
-        const idx = (13 - i) * 7 + d;
-        const event = pushEvents[idx];
-        week.push(event ? event.payload.commits.length : 0);
+    console.log('Fetching from GitHub API...');
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
       }
-      weeks.push(week);
+    });
+    
+    console.log('Response status:', res.status);
+    
+    if (!res.ok) {
+      heatmap.innerHTML = '<div style="color:var(--text-muted);font-family:var(--font-mono);font-size:0.7rem;padding:20px;">GitHub: Rate limited (' + res.status + ')</div>';
+      return;
     }
-    heatmap.innerHTML = weeks.map((week, wIdx) => `<div class="heatmap-week">${week.map((count, dIdx) => `<div class="heatmap-day ${count > 0 ? 'active' : ''}" data-count="${count}" title="${days[dIdx]}: ${count} commits" style="animation-delay:${(wIdx * 7 + dIdx) * 20}ms"></div>`).join('')}</div>`).join('');
+    
+    const events = await res.json();
+    console.log('Events received:', events.length);
+    
+    // Get push events
+    const pushEvents = events.filter(e => e.type === 'PushEvent').slice(0, 30);
+    console.log('Push events:', pushEvents.length);
+    
+    if (pushEvents.length === 0) {
+      heatmap.innerHTML = '<div style="color:var(--text-muted);font-family:var(--font-mono);font-size:0.7rem;padding:20px;">No recent commits</div>';
+      return;
+    }
+    
+    // Group events by date
+    const dateMap = {};
+    pushEvents.forEach(event => {
+      const date = event.created_at.split('T')[0];
+      dateMap[date] = (dateMap[date] || 0) + 1;
+    });
+    
+    console.log('Date map:', dateMap);
+    
+    // Generate heatmap for last 14 weeks
+    const today = new Date();
+    let html = '';
+    
+    for (let w = 13; w >= 0; w--) {
+      html += '<div class="heatmap-week">';
+      for (let d = 0; d < 7; d++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - (w * 7 + (6 - d)));
+        const dateStr = date.toISOString().split('T')[0];
+        const count = dateMap[dateStr] || 0;
+        html += `<div class="heatmap-day ${count > 0 ? 'active' : ''}" data-count="${count}" title="${dateStr}: ${count} push"></div>`;
+      }
+      html += '</div>';
+    }
+    
+    heatmap.innerHTML = html;
+    console.log('Heatmap loaded successfully!');
   } catch (e) {
-    console.log('GitHub activity unavailable');
+    console.error('Error loading GitHub activity:', e);
+    heatmap.innerHTML = '<div style="color:var(--text-muted);font-family:var(--font-mono);font-size:0.7rem;padding:20px;">Error: ' + e.message + '</div>';
   }
 }
 
@@ -60,21 +104,35 @@ function formatRelativeTime(dateStr) {
 }
 
 async function loadLatestCommit() {
+  const ticker = document.getElementById('githubTicker');
+  if (!ticker) return;
+  
   try {
-    const res = await fetch('https://api.github.com/users/YasperMW/events');
-    if (!res.ok) return;
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    
+    if (!res.ok) {
+      ticker.innerHTML = '<span class="ticker-dot" style="background:var(--text-muted)"></span> <span class="ticker-time">Activity unavailable</span>';
+      return;
+    }
+    
     const events = await res.json();
     const pushEvent = events.find(e => e.type === 'PushEvent');
-    if (!pushEvent) return;
+    
+    if (!pushEvent) {
+      ticker.innerHTML = '<span class="ticker-dot" style="background:var(--text-muted)"></span> <span class="ticker-time">No recent activity</span>';
+      return;
+    }
+    
     const repo = pushEvent.repo.name;
     const count = pushEvent.payload.commits.length;
     const time = formatRelativeTime(pushEvent.created_at);
-    const ticker = document.getElementById('githubTicker');
-    if (ticker) {
-      ticker.innerHTML = ` <span class="ticker-dot"></span> <span class="ticker-repo">${repo}</span> · <span class="ticker-commits">${count} commit${count > 1 ? 's' : ''}</span> · <span class="ticker-time">${time}</span>`;
-    }
+    ticker.innerHTML = ` <span class="ticker-dot"></span> <span class="ticker-repo">${repo}</span> · <span class="ticker-commits">${count} commit${count > 1 ? 's' : ''}</span> · <span class="ticker-time">${time}</span>`;
   } catch (e) {
-    console.log('GitHub ticker unavailable');
+    ticker.innerHTML = '<span class="ticker-dot" style="background:var(--text-muted)"></span> <span class="ticker-time">Unable to load</span>';
   }
 }
 
