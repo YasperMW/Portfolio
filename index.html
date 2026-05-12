@@ -1,529 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yankho Chisale's portfolio showcasing expertise in full stack development, network security, and advanced technical solutions.">
-    <meta name="keywords" content="Full Stack Developer, Cybersecurity Specialist, Portfolio, Web Development, Yankho Chisale">
-    <meta name="author" content="Yankho Chisale">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yankho Chisale – Full Stack Developer & Cybersecurity Specialist">
+<meta name="author" content="Yankho Chisale">
+<meta property="og:title" content="Yankho Chisale // Full Stack Dev & Cybersecurity">
+<meta property="og:description" content="Full Stack Developer & Cybersecurity Specialist based in Malawi, Africa. Building secure digital solutions.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/080c0a/00ff88?text=YC%2FDEV">
+<title>Yankho Chisale // DEV</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080c0a'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='bold' font-size='14' fill='%2300ff88'%3EYC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">Portfo<span>lio</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact Me</a></li>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"><div id="sp-fill"></div></div>
+<div id="scroll-cursor-dot"></div>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- KONAMI OVERLAY -->
+<div id="konami-overlay">
+  <div id="konami-terminal">
+    <div id="konami-output"></div>
+    <button id="konami-skip" onclick="closeKonami()">[ ESC // RETURN_TO_PORTFOLIO ]</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    YC<span class="slash">/</span>DEV
+    <span class="ver">&nbsp;v2.0</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">_home</a></li>
+    <li><a href="#about">_about</a></li>
+    <li><a href="#services">_services</a></li>
+    <li><a href="#timeline">_timeline</a></li>
+    <li><a href="#projects">_projects</a></li>
+    <li><a href="#testimonials">_testimonials</a></li>
+    <li><a href="#contact">_contact</a></li>
+  </ul>
+  <a href="mailto:yankhochisale@gmail.com" class="nav-cta">HIRE_ME</a>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+    <span>MENU</span>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </button>
+</nav>
+
+<div class="mobile-drawer-overlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-drawer">
+  <ul class="mobile-nav-links">
+    <li><a href="#home" onclick="toggleMobileMenu()">_home</a></li>
+    <li><a href="#about" onclick="toggleMobileMenu()">_about</a></li>
+    <li><a href="#services" onclick="toggleMobileMenu()">_services</a></li>
+    <li><a href="#timeline" onclick="toggleMobileMenu()">_timeline</a></li>
+    <li><a href="#projects" onclick="toggleMobileMenu()">_projects</a></li>
+    <li><a href="#testimonials" onclick="toggleMobileMenu()">_testimonials</a></li>
+    <li><a href="#contact" onclick="toggleMobileMenu()">_contact</a></li>
+  </ul>
+  <a href="mailto:yankhochisale@gmail.com" class="mobile-cta">HIRE_ME</a>
+  <div class="mobile-social">
+    <a href="https://github.com/YasperMW" class="social-btn" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/yasperchsale" class="social-btn" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://x.com/yasperchisale" class="social-btn" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid">
+    <div class="grid-plane"></div>
+    <div class="grid-fade"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">&#9632; AVAILABLE FOR HIRE &#9632;</div>
+      <h1 class="hero-name">
+        <span class="glitch" data-text="YANKHO">YANKHO</span><br>
+        <span class="accent">CHISALE</span>
+      </h1>
+      <p class="hero-role cursor-blink" id="heroRole">// Full Stack Developer &amp; Cybersecurity Specialist</p>
+      <div class="hero-terminal">
+        <div class="tline"><span class="cmd">user.identify()</span></div>
+        <div class="tline">&nbsp;&nbsp;<span class="val">name</span>: <span class="ok">"Yankho Chisale"</span></div>
+        <div class="tline">&nbsp;&nbsp;<span class="val">stack</span>: <span class="ok">["Full Stack", "Cybersecurity", "ML"]</span></div>
+        <div class="tline">&nbsp;&nbsp;<span class="val">location</span>: <span class="ok">"Malawi, Africa 🌍"</span></div>
+        <div class="tline">&nbsp;&nbsp;<span class="val">status</span>: <span style="color:var(--green)">ONLINE ●</span></div>
+        <div class="tline" style="margin-top:8px"><span class="cmd">system.ready()</span> → <span style="color:var(--green)">true</span></div>
+      </div>
+      <div class="github-ticker" id="githubTicker">
+        <span class="ticker-dot"></span>
+        <span class="ticker-loading">Loading GitHub activity...</span>
+      </div>
+      <div class="github-heatmap">
+        <div class="heatmap-container" id="githubHeatmap"></div>
+      </div>
+      <div class="hero-btns">
+        <a href="mailto:yankhochisale@gmail.com?subject=Project Inquiry" class="btn-primary">
+          <i class="fas fa-terminal"></i> INIT_CONTACT
+        </a>
+        <a href="Yankho_Chisale_CV.pdf" download class="btn-secondary">
+          <i class="fas fa-download"></i> GET_CV.PDF
+        </a>
+      </div>
+    </div>
+    <!-- 3D CUBE RIGHT SIDE -->
+    <div class="hero-visual">
+      <div style="position:relative;width:300px;height:300px;display:flex;align-items:center;justify-content:center;">
+        <div class="cube-glow"></div>
+        <div class="cube-orbit"><div class="orbit-dot"></div></div>
+        <div class="cube-scene">
+          <div class="cube">
+            <div class="cube-face front">
+              <i class="fas fa-shield-alt cube-face-icon"></i>
+              <span class="cube-face-label">SECURITY</span>
+              <span class="cube-face-val">PENTEST</span>
+            </div>
+            <div class="cube-face back">
+              <i class="fas fa-code cube-face-icon"></i>
+              <span class="cube-face-label">FULL STACK</span>
+              <span class="cube-face-val">DEV</span>
+            </div>
+            <div class="cube-face right">
+              <i class="fas fa-network-wired cube-face-icon"></i>
+              <span class="cube-face-label">NETWORK</span>
+              <span class="cube-face-val">ENGINEER</span>
+            </div>
+            <div class="cube-face left">
+              <i class="fas fa-brain cube-face-icon"></i>
+              <span class="cube-face-label">MACHINE</span>
+              <span class="cube-face-val">LEARNING</span>
+            </div>
+            <div class="cube-face top">
+              <i class="fas fa-globe cube-face-icon"></i>
+              <span class="cube-face-label">LOCATION</span>
+              <span class="cube-face-val">MALAWI</span>
+            </div>
+            <div class="cube-face bottom">
+              <i class="fas fa-terminal cube-face-icon"></i>
+              <span class="cube-face-label">STATUS</span>
+              <span class="cube-face-val">ONLINE</span>
+            </div>
+          </div>
+        </div>
+        <!-- packet lines -->
+        <div class="packet-line" style="top:30%;animation-delay:0s;"></div>
+        <div class="packet-line" style="top:55%;animation-delay:1.2s;"></div>
+        <div class="packet-line" style="top:72%;animation-delay:0.6s;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">01</span>
+    <div class="section-title-block">
+      <div class="section-label">ABOUT_ME</div>
+      <h2 class="section-title">Who Am I?</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-img-container">
+      <div class="about-img-frame tilt-card" id="imgCard">
+        <img src="Yankho Chisale.jpg" alt="Yankho Chisale" id="aboutImg" loading="lazy" onerror="document.getElementById('aboutImg').style.display='none';document.getElementById('avatarFallback').style.display='flex';">
+        <div class="about-avatar-fallback" id="avatarFallback" style="display:none;">
+          <span class="avatar-initials">YC</span>
+        </div>
+        <div class="img-corner tl"></div>
+        <div class="img-corner tr"></div>
+        <div class="img-corner bl"></div>
+        <div class="img-corner br"></div>
+        <div class="about-img-overlay">
+          <div class="about-status">
+            <div class="status-dot"></div>
+            SYSTEM_ONLINE // MALAWI.AFRICA
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="about-terminal">
+        <div class="at-line"><span class="at-key">const</span> <span class="at-comment">developer</span> <span class="at-sep">= {</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">name:</span> <span class="at-str">"Yankho Chisale"</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">role:</span> <span class="at-str">"Full Stack Dev + Cyber Specialist"</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">focus:</span> <span class="at-arr">["Web", "Mobile", "Security", "ML"]</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">network:</span> <span class="at-arr">["Design", "Implementation", "Audit"]</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">reverseEng:</span> <span class="at-bool">true</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">available:</span> <span class="at-bool">true</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">uptime:</span> <span class="at-str">"<span id="uptimeVal">847</span> days"</span><span class="at-sep">,</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">threat_level_cleared:</span> <span class="at-str">"TOP_SECRET"</span><span class="at-sep">,</span> <span class="at-comment">// 😏</span></div>
+        <div class="at-line">&nbsp;&nbsp;<span class="at-key">last_commit:</span> <span class="at-str" id="lastCommit">"a3f9d21"</span></div>
+        <div class="at-line"><span class="at-sep">}</span></div>
+      </div>
+      <p class="about-desc">
+        Versatile developer with expertise across full stack development, network security, and system design. I craft seamless, secure applications while maintaining robust network infrastructure and cutting-edge security measures. My analytical approach — combined with software reverse engineering experience — lets me deliver comprehensive technical solutions that exceed modern standards.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES: Command Palette -->
+<section id="services" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">02</span>
+    <div class="section-title-block">
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">What I Do</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="services-palette">
+    <div class="services-menu">
+      <div class="svc-menu-item active" onclick="selectService(0,this)">
+        <div class="svc-menu-num">SVC_001</div>
+        <div class="svc-menu-name">Full Stack Dev</div>
+      </div>
+      <div class="svc-menu-item" onclick="selectService(1,this)">
+        <div class="svc-menu-num">SVC_002</div>
+        <div class="svc-menu-name">Frontend Dev</div>
+      </div>
+      <div class="svc-menu-item" onclick="selectService(2,this)">
+        <div class="svc-menu-num">SVC_003</div>
+        <div class="svc-menu-name">Backend Dev</div>
+      </div>
+      <div class="svc-menu-item" onclick="selectService(3,this)">
+        <div class="svc-menu-num">SVC_004</div>
+        <div class="svc-menu-name">Cybersecurity</div>
+      </div>
+      <div class="svc-menu-item" onclick="selectService(4,this)">
+        <div class="svc-menu-num">SVC_005</div>
+        <div class="svc-menu-name">Network Eng.</div>
+      </div>
+      <div class="svc-menu-item" onclick="selectService(5,this)">
+        <div class="svc-menu-num">SVC_006</div>
+        <div class="svc-menu-name">Machine Learning</div>
+      </div>
+    </div>
+    <div class="services-detail active-detail" id="svcDetailWrap">
+      <div class="svc-detail-panel active" id="svc-0">
+        <i class="fas fa-code svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_001 // FULL_STACK</div>
+        <div class="svc-detail-name">Full Stack Development</div>
+        <div class="svc-detail-desc">End-to-end web solutions from pixel-perfect frontends to hardened server infrastructure. I bridge the gap between seamless UX and secure backend architecture — every layer built with intent.</div>
+        <ul class="svc-detail-list">
+          <li>End-to-end web &amp; mobile app development</li>
+          <li>REST API development &amp; integration</li>
+          <li>Database design &amp; optimization</li>
+          <li>Cloud deployment &amp; scaling</li>
+          <li>Performance optimization &amp; audits</li>
         </ul>
-        
-    </nav>
+      </div>
+      <div class="svc-detail-panel" id="svc-1">
+        <i class="fas fa-desktop svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_002 // FRONTEND</div>
+        <div class="svc-detail-name">Frontend Development</div>
+        <div class="svc-detail-desc">Responsive, interactive UIs with modern frameworks. I build experiences users remember — from motion design to micro-interactions — always with accessibility and security baked in.</div>
+        <ul class="svc-detail-list">
+          <li>Responsive web design &amp; SPA architecture</li>
+          <li>UI/UX implementation from Figma</li>
+          <li>Cross-browser compatibility</li>
+          <li>XSS &amp; CSRF protection</li>
+          <li>Secure session management</li>
+        </ul>
+      </div>
+      <div class="svc-detail-panel" id="svc-2">
+        <i class="fas fa-server svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_003 // BACKEND</div>
+        <div class="svc-detail-name">Backend Development</div>
+        <div class="svc-detail-desc">Robust server-side systems built to scale. From RESTful APIs to encrypted data pipelines — I architect backends that are both performant and resilient to attack.</div>
+        <ul class="svc-detail-list">
+          <li>RESTful &amp; GraphQL API development</li>
+          <li>Database management &amp; security hardening</li>
+          <li>Authentication &amp; authorization systems</li>
+          <li>SQL injection prevention &amp; input validation</li>
+          <li>Data encryption implementation</li>
+        </ul>
+      </div>
+      <div class="svc-detail-panel" id="svc-3">
+        <i class="fas fa-shield-alt svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_004 // SECURITY</div>
+        <div class="svc-detail-name">Cybersecurity</div>
+        <div class="svc-detail-desc">Offensive and defensive security expertise. I think like an attacker to build defenses that hold. From penetration tests to incident response — your digital assets stay protected.</div>
+        <ul class="svc-detail-list">
+          <li>Penetration testing &amp; vulnerability audits</li>
+          <li>Network security analysis</li>
+          <li>Malware analysis &amp; reverse engineering</li>
+          <li>Security policy implementation</li>
+          <li>Incident response planning</li>
+        </ul>
+      </div>
+      <div class="svc-detail-panel" id="svc-4">
+        <i class="fas fa-network-wired svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_005 // NETWORK</div>
+        <div class="svc-detail-name">Network Engineering</div>
+        <div class="svc-detail-desc">Design, deploy, and secure network infrastructure at any scale. Firewalls, VPNs, monitoring stacks — I build networks that stay up and stay safe.</div>
+        <ul class="svc-detail-list">
+          <li>Network design &amp; architecture</li>
+          <li>Firewall &amp; VPN configuration</li>
+          <li>Network monitoring &amp; traffic analysis</li>
+          <li>VoIP systems implementation</li>
+          <li>Wireless network security</li>
+        </ul>
+      </div>
+      <div class="svc-detail-panel" id="svc-5">
+        <i class="fas fa-brain svc-detail-icon"></i>
+        <div class="svc-detail-num">SVC_006 // ML</div>
+        <div class="svc-detail-name">Machine Learning</div>
+        <div class="svc-detail-desc">Intelligent systems that learn and adapt. From predictive models to AI-enhanced security tools — I apply ML where it creates real, measurable value for your business.</div>
+        <ul class="svc-detail-list">
+          <li>Predictive modeling &amp; analytics</li>
+          <li>Natural language processing</li>
+          <li>Computer vision solutions</li>
+          <li>AI-powered security systems</li>
+          <li>Data pipeline engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="home">
-        <div class="hero-content">
-            <p class="hello-text">Hello, my name is</p>
-            <h1>Yankho <span>Chisale</span></h1>
-            <p class="role">I'm a Full Stack Developer & Cybersecurity Specialist.</p>
-            <div class="cta-buttons">
-                <a href="mailto:yankhochisale@gmail.com?subject=Project%20Inquiry&body=Hi%20Yankho,%0D%0A%0D%0AI'm%20interested%20in%20discussing%20a%20project%20with%20you.%0D%0A%0D%0AProject%20Details:%0D%0A%0D%0ABest%20regards," class="contact-btn">
-                    <i class="fas fa-envelope"></i>
-                    Let's Discuss Your Project
-                </a>
-            </div>
-            <div class="cv-download">
-                <a href="Yankho_Chisale_CV.pdf" download class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download CV
-                </a>
-            </div>
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">03</span>
+    <div class="section-title-block">
+      <div class="section-label">SKILLS</div>
+      <h2 class="section-title">Tech Stack</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="skills-layout">
+    <!-- Radar Chart -->
+    <div class="skills-radar-wrap">
+      <canvas id="radarCanvas" width="320" height="320"></canvas>
+    </div>
+    <!-- Signal Bars -->
+    <div class="skills-bars-wrap">
+
+      <div class="skill-group" data-label="FRONTEND">
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-html5"></i>HTML5 / CSS3</span>
+            <div class="skill-signal" data-bars="5"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="95"></div></div>
         </div>
-    </section>
-
-    <section id="about">
-        <div class="about-content">
-            <div class="about-image">
-                <img src="Yankho Chisale.jpg" alt="Profile Image">
-            </div>
-            <div class="about-text">
-                <h2>About Me</h2>
-                <h3>Full Stack Developer &  Cybersecurity Specialist</h3>
-                <p>I am a versatile developer with expertise in full stack development, network security, and system design. My comprehensive skill set spans web development,mobile app development, network design and implementation, database security, and machine learning. I create seamless, secure applications while ensuring robust network infrastructure and implementing cutting-edge security measures. My analytical approach to system design and experience with software reverse engineering allows me to deliver comprehensive technical solutions that meet modern standards and exceed expectations.</p>
-                
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-js-square"></i>JavaScript / ES6+</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="88"></div></div>
         </div>
-    </section>
-
-    <section id="services">
-        <h2>My Services</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <i class="fas fa-code"></i>
-                <h3>Full Stack Development</h3>
-                <p class="service-preview">Complete web solutions from frontend to backend, ensuring seamless integration and optimal performance across all layers of your application.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>End-to-end web and mobile application development</li>
-                        <li>API development and integration</li>
-                        <li>Database design and optimization</li>
-                        <li>Cloud deployment and scaling</li>
-                        <li>Performance optimization</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-desktop"></i>
-                <h3>Frontend Development</h3>
-                <p class="service-preview">Creating responsive and interactive user interfaces using modern frameworks and best practices for an exceptional user experience.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>Responsive web design</li>
-                        <li>Single Page Applications (SPA)</li>
-                        <li>UI/UX implementation</li>
-                        <li>Cross-browser compatibility</li>
-                        <li>Modern framework integration</li>
-                        <li>XSS attack prevention</li>
-                        <li>CSRF protection implementation</li>
-                        <li>Secure data handling</li>
-                        <li>Input validation & sanitization</li>
-                        <li>Secure session management</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-server"></i>
-                <h3>Backend Development</h3>
-                <p class="service-preview">Building robust server-side applications, APIs, and database architectures to power your web applications efficiently.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>RESTful API development</li>
-                        <li>Database management</li>
-                        <li>Server architecture design</li>
-                        <li>Authentication & Authorization</li>
-                        <li>Performance optimization</li>
-                        <li>SQL injection prevention</li>
-                        <li>API security & rate limiting</li>
-                        <li>Data encryption implementation</li>
-                        <li>Security headers configuration</li>
-                        <li>Vulnerability assessment</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Network Design & Security</h3>
-                <p class="service-preview">Comprehensive network solutions including design, implementation, and security measures to ensure robust and secure infrastructure.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>Network architecture design</li>
-                        <li>Infrastructure implementation</li>
-                        <li>Security assessment & hardening</li>
-                        <li>Network monitoring & maintenance</li>
-                        <li>Firewall configuration</li>
-                        <li>VPN setup and management</li>
-                        <li>Network security protocols</li>
-                        <li>Incident response planning</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-database"></i>
-                <h3>Database & Security Solutions</h3>
-                <p class="service-preview">Expert database management and security services to protect your valuable data and ensure optimal performance.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>Database design & optimization</li>
-                        <li>Security implementation</li>
-                        <li>Access control management</li>
-                        <li>Data encryption</li>
-                        <li>Backup & recovery solutions</li>
-                        <li>Performance tuning</li>
-                        <li>Security auditing</li>
-                        <li>Vulnerability assessment</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-brain"></i>
-                <h3>Advanced Technical Solutions</h3>
-                <p class="service-preview">Specialized technical services including system analysis, machine learning implementation, and software reverse engineering.</p>
-                <div class="service-details">
-                    <ul>
-                        <li>System analysis & design</li>
-                        <li>Machine learning implementation</li>
-                        <li>Software reverse engineering</li>
-                        <li>Technical documentation</li>
-                        <li>Performance optimization</li>
-                        <li>System integration</li>
-                        <li>Technical consulting</li>
-                        <li>Custom solution development</li>
-                    </ul>
-                </div>
-                <button class="read-more">Read More</button>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-react"></i>React.js</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="82"></div></div>
         </div>
-    </section>
-
-    <section id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <i class="fab fa-microsoft"></i>
-                            <span>C#</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Flutter</span>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                            <span class="skill-percent">88%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 88%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Frontend Technologies</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-react"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-vuejs"></i>
-                        <span>Vue.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-bootstrap"></i>
-                        <span>Bootstrap</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-sass"></i>
-                        <span>Sass</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Backend Technologies</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-node"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-server"></i>
-                        <span>Express.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>MySQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-php"></i>
-                        <span>PHP</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-fire"></i>
-                        <span>Firebase</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>DevOps & Tools</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-docker"></i>
-                        <span>Docker</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-aws"></i>
-                        <span>AWS</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-linux"></i>
-                        <span>Linux</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Other Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fas fa-network-wired"></i>
-                        <span>Networking</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Cybersecurity</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>System Design</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-users-cog"></i>
-                        <span>Team Leadership</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Network & Security</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fas fa-network-wired"></i>
-                        <span>Network Design</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-sitemap"></i>
-                        <span>Network Implementation</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Network Security</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>Database Security</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Advanced Technical Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fas fa-bug"></i>
-                        <span>Software Reverse Engineering</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>System Analysis & Design</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-brain"></i>
-                        <span>Machine Learning</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>Database Management</span>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-vuejs"></i>Vue.js</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="75"></div></div>
         </div>
-    </section>
+      </div>
 
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="yathuija.png" alt="Bus Booking and Hiring System" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Bus Booking and Hiring System</h3>
-                    <p>Yathu Ija is a comprehensive online platform for the Yathu-Ija Bus Line,
-                         dedicated to providing a seamless and enjoyable travel experience.
-                          The website allows users to explore travel options, learn about the company’s core values,
-                           and discover various discounts for children, students, the elderly, and frequent travelers. 
-                           With a focus on safety, reliability, and customer satisfaction, Yathu Ija offers convenient
-                            booking options, showcases the most hired vehicles, 
-                        and features real user feedback to help travelers make informed decisions.</p>
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="esports-platform.png" alt="Esports Tournament Platform" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Modern Esports Tournament Platform</h3>
-                    <p>A modern platform built with PHP, MySQL, and modern web technologies. This platform allows organizers to create and manage esports tournaments while players can easily register, compete, and track their rankings.</p>
-                    <div class="project-tech">
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>Modern Web Technologies</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://fit4lifefitnessgym.com/wp-content/uploads/2024/06/cropped-fit4lifelogo-1-192x192.png" alt="Fit 4 Life Fitness Gym" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Fit 4 Life Fitness Gym</h3>
-                    <p>A professional fitness center website built with PHP , featuring membership plans, trainer profiles, and online booking system. The site is fully responsive and optimized for both desktop and mobile users.</p>
-                    <div class="project-tech">
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://fit4lifefitnessgym.com/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://zacreativeconsult.org/wp-content/uploads/2024/03/cropped-zacc-logo-192x192.png" alt="ZA Creative Consult" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>ZA Creative Consult</h3>
-                    <p>A professional consulting firm's website built with PHP, showcasing services, team members, and client success stories. The site features a modern, clean design with smooth animations and easy navigation.</p>
-                    <div class="project-tech">
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://zacreativeconsult.org/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-                    </div>
-                </div>
-            </div>
-            
-
-            
+      <div class="skill-group" data-label="SECURITY_+_DEVOPS">
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fas fa-bug"></i>Penetration Testing</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="85"></div></div>
         </div>
-    </section>
-
-    <section id="contact">
-        <h2>Let Me Build Your Next Web Application.</h2>
-        <div class="cta-buttons">
-            <a href="mailto:yankhochisale@gmail.com?subject=Job%20Opportunity" class="hire-btn" aria-label="Hire Me via Email">
-                <i class="fas fa-briefcase"></i>
-                <span>Hire Me</span>
-            </a>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fas fa-lock"></i>Cryptography</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="78"></div></div>
         </div>
-        <div class="footer">
-            <h3>Yankho Chisale</h3>
-            <p>Looking for a full stack developer to bring your ideas to life? Let's connect and discuss your project:</p>
-            <div class="social-links">
-                <a href="https://github.com/YasperMW" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                <a href="www.linkedin.com/in/yasperchsale" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-                <a href="https://x.com/yasperchisale?t=7JxNsV_HcRhA7ikj0iB7fQ&s=09" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                </a>
-                <a href="mailto:yankhochisale4@gmail.com">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
-                    </svg>
-                </a>
-                <a href="https://wa.me/+265883271664" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                </a>
-                <a href="https://t.me/Yasperchisale" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.218 17.525c-.233.156-.458.181-.687.067-.23-.115-.293-.366-.195-.62l1.17-3.034-2.478-1.449c-.267-.156-.376-.369-.321-.64s.236-.459.514-.494l9.667-1.219c.275-.035.474.084.588.359.116.274.055.515-.18.724l-7.959 6.251-0.119.055z"/>
-                    </svg>
-                </a>
-                <a href="https://www.facebook.com/share/yei9164FybVB7tNW/" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/yasper50k" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-docker"></i>Docker / DevOps</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="75"></div></div>
         </div>
-    </section>
+        <div class="skill-row">
+          <div class="skill-meta">
+            <span class="skill-name"><i class="fab fa-linux"></i>Linux / Bash</span>
+            <div class="skill-signal" data-bars="4"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-w="85"></div></div>
+        </div>
+      </div>
 
-    <a href="#home" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">04</span>
+    <div class="section-title-block">
+      <div class="section-label">EXPERIENCE</div>
+      <h2 class="section-title">Career Log</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">[2025] → Present</div>
+      <div class="timeline-title">Full Stack Developer & Cybersecurity Consultant</div>
+      <div class="timeline-org">Freelance // Remote</div>
+      <div class="timeline-desc">Building secure web applications, performing penetration testing, and consulting for enterprise clients on security architecture. Deployed 4+ production systems.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">[2025] → Present</div>
+      <div class="timeline-title">Palevel Platform - Full Stack Developer</div>
+      <div class="timeline-org">Kernelsoft Team // Remote</div>
+      <div class="timeline-desc">Collaborated with Kernelsoft team to build a comprehensive hostel booking platform. Developed backend API with FastAPI, web frontend with Laravel, and mobile app with Flutter. Implemented authentication (JWT, Google OAuth, OTP), payment integration with PayChangu, WebSocket real-time messaging, and Firebase push notifications.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">[2026] → 2026</div>
+      <div class="timeline-title">Staff Track HRMS - Solo Developer</div>
+      <div class="timeline-org">St Johns Mission Hospital // Internship</div>
+      <div class="timeline-desc">Designed and developed complete HR workforce management system from scratch for St Johns Mission Hospital. Built mobile app with Flutter for attendance tracking (GPS, offline sync) and web dashboard with React. Implemented FastAPI backend with PostgreSQL and Redis. Conducted user orientation training for hospital staff and administrators.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">[2022] → Present</div>
+      <div class="timeline-title">Continuous Learning & Open Source</div>
+      <div class="timeline-org">Self-directed // GitHub</div>
+      <div class="timeline-desc">Maintained contributions to security tools, ML projects, and network automation scripts. Active in the developer community.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="reveal" style="background:var(--bg2);">
+  <div class="section-header">
+    <span class="section-tag">05</span>
+    <div class="section-title-block">
+      <div class="section-label">TESTIMONIALS</div>
+      <h2 class="section-title">Client Feedback</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-text">Yankho delivered our gym website ahead of schedule and exceeded our expectations. The booking system he built increased member signups by 40% in the first month. Professional, responsive, and technically excellent.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">FM</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Fitness Manager</div>
+          <div class="testimonial-role">FIT 4 LIFE GYM</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-text">Working with Yankho on our company website was a seamless experience. He understood our brand vision immediately and translated it into a beautiful, functional site. His attention to detail and security consciousness gave us confidence throughout the project.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">ZC</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Founder</div>
+          <div class="testimonial-role">ZA CREATIVE CONSULT</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-text">Yankho developed our complete HR management system from the ground up. The attendance tracking with GPS and offline capability has transformed our workforce management. He also trained all our staff and administrators on using the system. A dedicated developer who delivered beyond our expectations.</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">HR</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">HR Director</div>
+          <div class="testimonial-role">ST JOHNS MISSION HOSPITAL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">06</span>
+    <div class="section-title-block">
+      <div class="section-label">PROJECTS</div>
+      <h2 class="section-title">Deployed Work</h2>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- FLAGSHIP card spans 2 cols -->
+    <div class="project-card flagship" id="pc1">
+      <div class="project-img">
+        <div class="project-scan"></div>
+        <div class="project-ascii" style="width:100%;padding:24px 32px;">
+  ╔══════════════════════════════╗
+  ║   PALEVEL PLATFORM v2.0     ║
+  ║   [GOVERNANCE SYSTEM]        ║
+  ║                              ║
+  ║   Modules:                   ║
+  ║   • Document Management      ║
+  ║   • Case Tracking            ║
+  ║   • Analytics Dashboard     ║
+  ║                              ║
+  ║   Status: ONLINE             ║
+  ╚══════════════════════════════╝</div>
+        <div class="project-hover-term">
+          <div class="pht-line"><span class="cmd">$ curl -X GET palevel.platform/api/status</span></div>
+          <div class="pht-line"><span class="ok">HTTP/2 200 OK</span></div>
+          <div class="pht-line"><span class="val">Content-Type: application/json</span></div>
+          <div class="pht-line" style="margin-top:8px;"><span class="cmd">{"status":"ONLINE","modules":["docs","cases","analytics"]}</span></div>
+          <div class="pht-line" style="margin-top:8px;color:var(--green);">✓ SSL/TLS 1.3 // ✓ RBAC // ✓ Audit Logs</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div class="project-id">PRJ_001 // 2026</div>
+          <span class="project-status status-live">● LIVE</span>
+        </div>
+        <div class="project-name">Palevel Platform</div>
+        <div class="project-desc">Full-stack hostel booking platform connecting students with accommodation providers. Features multi-role system (Students, Landlords, Admins), Google OAuth & OTP authentication, hostel/room management, booking system with PayChangu payment integration, real-time WebSocket messaging, Firebase push notifications, PDF generation for receipts, and location services with OSRM routing.</div>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">FastAPI</span><span class="tag">Laravel</span><span class="tag">PostgreSQL</span><span class="tag">WebSocket</span>
+        </div>
+        <div class="project-links">
+          <a href="https://palevel.com" target="_blank" class="proj-link"><i class="fas fa-globe"></i> Website</a>
+          <a href="#" class="proj-link"><i class="fab fa-android"></i> Mobile App</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="pc2">
+      <div class="project-img">
+        <div class="project-scan"></div>
+        <div class="project-ascii">
+  ┌─────────────────────────────┐
+  │  STAFF TRACK HRMS           │
+  │  ┌─────────────────────┐    │
+  │  │   ATTENDANCE        │    │
+  │  │   [█████████] 98%   │    │
+  │  │   LEAVE MANAGEMENT  │    │
+  │  │   [████████░] 80%   │    │
+  │  │   PAYROLL          │    │
+  │  │   [███████░░] 70%   │    │
+  │  └─────────────────────┘    │
+  │  [ ST JOHNS HOSPITAL ONLY ]  │
+  └─────────────────────────────┘</div>
+        <div class="project-hover-term">
+          <div class="pht-line"><span class="cmd">$ curl stafftrack.hrms/api/employees</span></div>
+          <div class="pht-line"><span class="ok">HTTP/2 200 OK</span></div>
+          <div class="pht-line" style="margin-top:6px;"><span class="val">{"employees":150,"active":142,"on_leave":8}</span></div>
+          <div class="pht-line" style="margin-top:8px;color:var(--green);">✓ Internal System // ✓ St Johns Hospital Only</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div class="project-id">PRJ_002 // 2026</div>
+          <span class="project-status status-private">● INTERNAL</span>
+        </div>
+        <div class="project-name">Staff Track HRMS</div>
+        <div class="project-desc">Comprehensive workforce management solution for St. Johns Hospital. Features mobile attendance with GPS and offline sync, employee self-registration, multi-level leave approvals (HoD → HR → Accountant → Administrator), real-time analytics dashboards, automated payroll processing, incident reporting, and robust security with JWT auth, RBAC, and audit logging. Hybrid deployment with local server for offline capability and cloud backup.</div>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">React</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link"><i class="fas fa-lock"></i> Internal - St Johns Hospital</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="pc3">
+      <div class="project-img">
+        <div class="project-scan"></div>
+        <img src="https://fit4lifefitnessgym.com/wp-content/uploads/2025/06/cropped-fit4lifelogo-1-192x192.png" alt="Fit 4 Life" loading="lazy" onerror="this.style.display='none'">
+        <div class="project-hover-term">
+          <div class="pht-line"><span class="cmd">$ curl fit4lifefitnessgym.com/api/book</span></div>
+          <div class="pht-line"><span class="ok">HTTP/2 200 OK</span></div>
+          <div class="pht-line" style="margin-top:6px;"><span class="val">{"slots":12,"trainer":"available","plan":"PREMIUM"}</span></div>
+          <div class="pht-line" style="margin-top:8px;color:var(--green);">✓ Live booking // ✓ Mobile-first</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div class="project-id">PRJ_003 // 2025</div>
+          <span class="project-status status-live">● LIVE</span>
+        </div>
+        <div class="project-name">Fit 4 Life Fitness Gym</div>
+        <div class="project-desc">Professional fitness center website — membership plans, trainer profiles, and an online booking system. Fully responsive.</div>
+        <div class="project-tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS3</span><span class="tag">JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://fit4lifefitnessgym.com/" target="_blank" class="proj-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="pc4">
+      <div class="project-img">
+        <div class="project-scan"></div>
+        <img src="https://zacreativeconsult.org/wp-content/uploads/2025/03/cropped-zacc-logo-192x192.png" alt="ZA Creative" loading="lazy" onerror="this.style.display='none'">
+        <div class="project-hover-term">
+          <div class="pht-line"><span class="cmd">$ curl zacreativeconsult.org/api/services</span></div>
+          <div class="pht-line"><span class="ok">HTTP/2 200 OK</span></div>
+          <div class="pht-line" style="margin-top:6px;"><span class="val">{"services":8,"team_members":5,"clients":20}</span></div>
+          <div class="pht-line" style="margin-top:8px;color:var(--green);">✓ Smooth anims // ✓ SEO optimized</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div class="project-id">PRJ_004 // 2025</div>
+          <span class="project-status status-live">● LIVE</span>
+        </div>
+        <div class="project-name">ZA Creative Consult</div>
+        <div class="project-desc">Professional consulting firm website — services showcase, team profiles, and client success stories with smooth animations.</div>
+        <div class="project-tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS3</span><span class="tag">JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://zacreativeconsult.org/" target="_blank" class="proj-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="section-header" style="justify-content:center;flex-direction:column;text-align:center;gap:8px;">
+    <div class="section-label">CONTACT</div>
+    <h2 class="section-title">07 // Let's Build</h2>
+    <div style="width:80px;height:1px;background:var(--border-bright);margin:8px auto 0;"></div>
+  </div>
+  <!-- STAT COUNTERS -->
+  <div class="contact-stats">
+    <div class="cstat">
+      <div class="cstat-num">04</div>
+      <div class="cstat-label">// PROJECTS_DEPLOYED</div>
+    </div>
+    <div class="cstat-divider"></div>
+    <div class="cstat">
+      <div class="cstat-num">06</div>
+      <div class="cstat-label">// SERVICES_OFFERED</div>
+    </div>
+    <div class="cstat-divider"></div>
+    <div class="cstat">
+      <div class="cstat-num">03+</div>
+      <div class="cstat-label">// YEARS_EXPERIENCE</div>
+    </div>
+    <div class="cstat-divider"></div>
+    <div class="cstat">
+      <div class="cstat-num">∞</div>
+      <div class="cstat-label">// LINES_OF_CODE</div>
+    </div>
+  </div>
+  <div class="contact-terminal">
+    <div class="contact-big">Let Me Build Your<br><span class="hl">Next Application.</span></div>
+    <p class="contact-sub">
+      &gt; Looking for a full stack developer to bring your ideas to life?<br>
+      &gt; Let's connect and build something that matters.
+    </p>
+    <a href="mailto:yankhochisale@gmail.com?subject=Job Opportunity" class="btn-primary" style="display:inline-flex;margin:0 auto;">
+      <i class="fas fa-briefcase"></i> HIRE_ME
     </a>
+    <div style="margin-top:24px;font-family:var(--font-mono);font-size:0.78rem;">
+      <span style="color:var(--text-dim);">Email:</span>
+      <span style="color:var(--green);margin-left:8px;">yankhochisale@gmail.com</span>
+      <button class="copy-btn" onclick="copyEmail()" aria-label="Copy email to clipboard">
+        <i class="fas fa-copy"></i> COPY
+      </button>
+    </div>
+  </div>
+  <div class="social-row">
+    <a href="https://github.com/YasperMW" class="social-btn" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/yasperchsale" class="social-btn" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    </a>
+    <a href="https://x.com/yasperchisale" class="social-btn" target="_blank" aria-label="X / Twitter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+    </a>
+    <a href="mailto:yankhochisale4@gmail.com" class="social-btn" aria-label="Email">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+    </a>
+    <a href="https://wa.me/+265883271664" class="social-btn" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+    <a href="https://t.me/Yasperchisale" class="social-btn" target="_blank" aria-label="Telegram">
+      <i class="fab fa-telegram-plane" aria-hidden="true" style="font-size:18px;color:var(--text-dim);position:relative;z-index:1;transition:color 0.2s;"></i>
+    </a>
+    <a href="https://www.facebook.com/share/yei9164FybVB7tNW/" class="social-btn" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+    </a>
+    <a href="https://instagram.com/yasper50k" class="social-btn" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<footer>
+  <div class="foot-copy">© 2026 YANKHO_CHISALE // ALL RIGHTS RESERVED</div>
+  <div class="foot-konami-hint">↑↑↓↓←→←→BA // try it</div>
+  <div class="foot-right">BUILT_WITH <span>&lt;/&gt;</span> + <span>&#9632;</span> PASSION</div>
+</footer>
+
+<a href="#home" class="back-top" id="backTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="script.js"></script>
 </body>
 </html>
